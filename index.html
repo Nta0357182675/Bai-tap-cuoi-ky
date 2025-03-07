@@ -6,6 +6,8 @@
     <link rel="icon" href="./image/icon.ico" type="image/x-icon">
     <title>Thiệp của Tuệ Anh</title>
     <link type="text/css" rel="stylesheet" href="./renxi/default.css">
+    <!-- Link FontAwesome để sử dụng icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
@@ -32,8 +34,12 @@
                     <font color="linear-gradient(to right, #da22ff, #9733ee)"><span class="say">Chào em!</span><br>
                         <span class="say"> </span><br>
                         <span class="say">" Tuệ Anh càng lớn càng xinh ha, lại còn học giỏi nữa!</span><br><br>
-                        <span class="say">Nhanh nhỉ, mới ngày nào vẫn còn là cô bé được mẹ đón đi học thêm ở nhà anh, rồi cùng nhau chơi bài, học đàn mà giờ đã lớn và trưởng thành với giao diện của 1 thiếu nữ xinh đẹp rồi.</span><br><br>
-                        <span class="say"> Hôm nay là 8/3, anh hy vọng những điều an yên, nhẹ nhàng và ấm áp nhất sẽ đến với em hiện tại và cả trong tương lai nữa. Chúc em có 1 kỳ thi THPT Quốc Gia may mắn, thành công rực rỡ em nhé" </span>
+                        <span class="say">Nhanh nhỉ, mới ngày nào vẫn còn là cô bé được mẹ đón đi học thêm ở nhà anh,
+                            rồi cùng nhau chơi bài, học đàn mà giờ đã lớn và trưởng thành với giao diện của 1 thiếu nữ
+                            xinh đẹp rồi.</span><br><br>
+                        <span class="say"> Hôm nay là 8/3, anh hy vọng những điều an yên, nhẹ nhàng và ấm áp nhất sẽ đến
+                            với em hiện tại và cả trong tương lai nữa. Chúc em có 1 kỳ thi THPT Quốc Gia may mắn, thành
+                            công rực rỡ em nhé" </span>
                         <br><br>
                         <span class="say"><span class="space"></span> -- t_anh --</span>
                     </font>
@@ -67,12 +73,22 @@
 
                     <!-- Các nút điều khiển -->
                     <div>
+                        <!-- Nút Thả Tim -->
+                        <button id="heart-btn"
+                            style="background: transparent; border: none; cursor: pointer; font-size: 24px; position: absolute; left:10px; bottom: -90px;">
+                            <i class="fas fa-heart"></i> <!-- Tim đen mặc định -->
+                        </button>
                         <button id="prev"
                             style="background: transparent; border: none; padding: 10px; margin: 10px; border-radius: 50%; cursor: pointer; font-size: 20px; color: black;">⏮</button>
                         <button id="play-pause"
                             style="background: transparent; border: none; padding: 10px; margin: 10px; border-radius: 50%; cursor: pointer; font-size: 20px; color: black;">▶</button>
                         <button id="next"
                             style="background: transparent; border: none; padding: 10px; margin: 10px; border-radius: 50%; cursor: pointer; font-size: 20px; color: black;">⏭</button>
+                        <button id="share-btn"
+                            style="background: transparent; border: none; cursor: pointer; font-size: 24px; position: absolute; right:10px; bottom: -90px;">
+                            <i class="fas fa-share-alt"></i> <!-- Icon chia sẻ màu đen -->
+                        </button>
+
                     </div>
                 </div>
             </div>
@@ -82,6 +98,20 @@
             <!-- Chèn nguồn bài hát ở đây -->
 
             <script>
+                const heartBtn = document.getElementById("heart-btn");
+
+                // Chuyển đổi trạng thái Thả Tim (Đổi màu khi bấm)
+                heartBtn.addEventListener("click", () => {
+                    heartBtn.classList.toggle("liked");
+                });
+                const shareBtn = document.getElementById("share-btn");
+
+                // Chuyển đổi trạng thái Chia Sẻ (Đổi màu khi bấm)
+                shareBtn.addEventListener("click", () => {
+                    shareBtn.classList.toggle("shared");
+                });
+
+
                 const audio = document.getElementById("audio");
                 const playPauseBtn = document.getElementById("play-pause");
                 const progress = document.getElementById("progress");
